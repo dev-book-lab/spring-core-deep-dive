@@ -632,6 +632,6 @@ child.getBean("parentBean");  // ??
 
 <div align="center">
 
-**[⬅️ 목차로](../README.md)** | **[다음: BeanDefinition과 Bean 메타데이터 ➡️](./02-bean-definition-metadata.md)**
+**[다음: BeanDefinition과 Bean 메타데이터 ➡️](./02-bean-definition-metadata.md)**
 
 </div>
