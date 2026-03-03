@@ -38,30 +38,18 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 ---
 
-## 🔗 연관 레포지토리
-
-이 레포는 **Dev Book Lab** 시리즈의 일부입니다.
-
-| 레포 | 연결고리 |
-|------|---------|
-| [JVM Deep Dive](https://github.com/dev-book-lab/jvm-deep-dive) | Spring이 JVM 위에서 동작하는 원리 — CGLIB가 바이트코드를 조작하는 방식, 프록시 객체의 메모리 구조 |
-| [Unit Testing Patterns](https://github.com/dev-book-lab/unit-testing-patterns) | Spring Bean 테스트 전략 — `@SpringBootTest` vs `@WebMvcTest`, Mock Bean 주입 원리 |
-| [Design Patterns](https://github.com/dev-book-lab/design-patterns) | Spring이 사용하는 패턴들 — Template Method(JdbcTemplate), Proxy(AOP), Factory(BeanFactory) |
-
----
-
 ## 🚀 빠른 시작
 
 각 챕터의 첫 문서부터 바로 학습을 시작하세요!
 
-[![IoC Container](https://img.shields.io/badge/🔹_IoC_Container-BeanFactory_vs_ApplicationContext-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./01-ioc-container/01-beanfactory-vs-applicationcontext.md)
-[![DI Internals](https://img.shields.io/badge/🔹_DI_Internals-생성자_vs_필드_주입_바이트코드-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./02-dependency-injection/01-constructor-vs-field-injection-bytecode.md)
-[![Bean Lifecycle](https://img.shields.io/badge/🔹_Bean_Lifecycle-Bean_생성_전체_과정-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./03-bean-lifecycle/01-bean-creation-process.md)
-[![AOP](https://img.shields.io/badge/🔹_AOP-JDK_Proxy_vs_CGLIB-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./04-aop/01-jdk-proxy-vs-cglib.md)
-[![Component Scan](https://img.shields.io/badge/🔹_Component_Scan-@ComponentScan_동작_원리-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./05-component-scanning/01-componentscan-internals.md)
-[![Configuration](https://img.shields.io/badge/🔹_Configuration-@Configuration_vs_@Component-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./06-configuration/01-configuration-vs-component.md)
-[![Events](https://img.shields.io/badge/🔹_Events-ApplicationEvent_발행_구독-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./07-events/01-application-event-mechanism.md)
-[![SpEL](https://img.shields.io/badge/🔹_SpEL-Expression_파싱_과정-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./08-spel/01-spel-parsing-process.md)
+[![IoC Container](https://img.shields.io/badge/🔹_IoC_Container-BeanFactory_vs_ApplicationContext-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./ioc-container/01-beanfactory-vs-applicationcontext.md)
+[![DI Internals](https://img.shields.io/badge/🔹_DI_Internals-생성자_vs_필드_주입_바이트코드-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./dependency-injection/01-constructor-vs-field-injection-bytecode.md)
+[![Bean Lifecycle](https://img.shields.io/badge/🔹_Bean_Lifecycle-Bean_생성_전체_과정-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./bean-lifecycle/01-bean-creation-process.md)
+[![AOP](https://img.shields.io/badge/🔹_AOP-JDK_Proxy_vs_CGLIB-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./aop/01-jdk-proxy-vs-cglib.md)
+[![Component Scan](https://img.shields.io/badge/🔹_Component_Scan-@ComponentScan_동작_원리-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./component-scanning/01-componentscan-internals.md)
+[![Configuration](https://img.shields.io/badge/🔹_Configuration-@Configuration_vs_@Component-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./configuration/01-configuration-vs-component.md)
+[![Events](https://img.shields.io/badge/🔹_Events-ApplicationEvent_발행_구독-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./events/01-application-event-mechanism.md)
+[![SpEL](https://img.shields.io/badge/🔹_SpEL-Expression_파싱_과정-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](./spel/01-spel-parsing-process.md)
 
 ---
 
@@ -82,12 +70,12 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 | 문서 | 다루는 내용 |
 |------|------------|
-| [01. BeanFactory vs ApplicationContext](./01-ioc-container/01-beanfactory-vs-applicationcontext.md) | 인터페이스 계층 구조, `getBean()` 내부 동작, Lazy vs Eager 초기화 결정 지점 |
-| [02. BeanDefinition과 Bean 메타데이터](./01-ioc-container/02-bean-definition-metadata.md) | `BeanDefinition` 인터페이스 필드 전체, XML / 어노테이션 / Java Config → BeanDefinition 변환 과정 |
-| [03. BeanPostProcessor 체인](./01-ioc-container/03-beanpostprocessor-chain.md) | `postProcessBeforeInitialization` / `After` 호출 순서, `@Autowired`와 `@Transactional`이 이 체인에서 처리되는 방식 |
-| [04. ApplicationContext 계층 구조](./01-ioc-container/04-applicationcontext-hierarchy.md) | Parent-Child 컨텍스트 분리 이유, Spring MVC의 Root / Servlet Context 구조 |
-| [05. Environment & PropertySource 우선순위](./01-ioc-container/05-environment-propertysource.md) | `PropertySource` 체인, OS 환경변수 / JVM 프로퍼티 / `application.yml` 우선순위 결정 메커니즘 |
-| [06. Resource Abstraction 패턴](./01-ioc-container/06-resource-abstraction.md) | `Resource` 인터페이스 계층, `classpath:` / `file:` / `http:` prefix 처리, `ResourceLoader` 전략 패턴 |
+| [01. BeanFactory vs ApplicationContext](./ioc-container/01-beanfactory-vs-applicationcontext.md) | 인터페이스 계층 구조, `getBean()` 내부 동작, Lazy vs Eager 초기화 결정 지점 |
+| [02. BeanDefinition과 Bean 메타데이터](./ioc-container/02-bean-definition-metadata.md) | `BeanDefinition` 인터페이스 필드 전체, XML / 어노테이션 / Java Config → BeanDefinition 변환 과정 |
+| [03. BeanPostProcessor 체인](./ioc-container/03-beanpostprocessor-chain.md) | `postProcessBeforeInitialization` / `After` 호출 순서, `@Autowired`와 `@Transactional`이 이 체인에서 처리되는 방식 |
+| [04. ApplicationContext 계층 구조](./ioc-container/04-applicationcontext-hierarchy.md) | Parent-Child 컨텍스트 분리 이유, Spring MVC의 Root / Servlet Context 구조 |
+| [05. Environment & PropertySource 우선순위](./ioc-container/05-environment-propertysource.md) | `PropertySource` 체인, OS 환경변수 / JVM 프로퍼티 / `application.yml` 우선순위 결정 메커니즘 |
+| [06. Resource Abstraction 패턴](./ioc-container/06-resource-abstraction.md) | `Resource` 인터페이스 계층, `classpath:` / `file:` / `http:` prefix 처리, `ResourceLoader` 전략 패턴 |
 
 </details>
 
@@ -104,13 +92,13 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 | 문서 | 다루는 내용 |
 |------|------------|
-| [01. 생성자 vs 필드 vs 세터 주입 바이트코드 비교](./02-dependency-injection/01-constructor-vs-field-injection-bytecode.md) | `javap`로 생성자 주입 vs 리플렉션 필드 주입 바이트코드 차이 실측, 불변성과 테스트 용이성의 기술적 근거 |
-| [02. 순환 참조 해결 — 3단계 캐시](./02-dependency-injection/02-circular-dependency-3cache.md) | `singletonObjects` / `earlySingletonObjects` / `singletonFactories` 각 캐시의 역할, 생성자 주입에서 왜 해결이 안 되는가 |
-| [03. @Autowired vs @Inject vs @Resource](./02-dependency-injection/03-autowired-inject-resource.md) | JSR-330 vs Spring 어노테이션, 탐색 순서(타입 → 이름) 차이, `AutowiredAnnotationBeanPostProcessor` 처리 경로 |
-| [04. @Qualifier & @Primary 우선순위](./02-dependency-injection/04-qualifier-primary-priority.md) | 동일 타입 Bean 다수 존재 시 해결 알고리즘, `@Qualifier` → `@Primary` → Bean 이름 폴백 순서 |
-| [05. Optional Dependency 처리](./02-dependency-injection/05-optional-dependency.md) | `required=false` / `Optional<T>` / `@Nullable` / `ObjectProvider<T>` 각각의 내부 처리 차이 |
-| [06. Constructor Binding의 장점](./02-dependency-injection/06-constructor-binding.md) | 불변 객체 보장 원리, `@ConfigurationProperties`에서 생성자 바인딩이 권장되는 이유 |
-| [07. Lazy Initialization 동작 원리](./02-dependency-injection/07-lazy-initialization.md) | `@Lazy` 어노테이션이 만드는 Proxy, `DefaultListableBeanFactory`의 Lazy 처리 경로 |
+| [01. 생성자 vs 필드 vs 세터 주입 바이트코드 비교](./dependency-injection/01-constructor-vs-field-injection-bytecode.md) | `javap`로 생성자 주입 vs 리플렉션 필드 주입 바이트코드 차이 실측, 불변성과 테스트 용이성의 기술적 근거 |
+| [02. 순환 참조 해결 — 3단계 캐시](./dependency-injection/02-circular-dependency-3cache.md) | `singletonObjects` / `earlySingletonObjects` / `singletonFactories` 각 캐시의 역할, 생성자 주입에서 왜 해결이 안 되는가 |
+| [03. @Autowired vs @Inject vs @Resource](./dependency-injection/03-autowired-inject-resource.md) | JSR-330 vs Spring 어노테이션, 탐색 순서(타입 → 이름) 차이, `AutowiredAnnotationBeanPostProcessor` 처리 경로 |
+| [04. @Qualifier & @Primary 우선순위](./dependency-injection/04-qualifier-primary-priority.md) | 동일 타입 Bean 다수 존재 시 해결 알고리즘, `@Qualifier` → `@Primary` → Bean 이름 폴백 순서 |
+| [05. Optional Dependency 처리](./dependency-injection/05-optional-dependency.md) | `required=false` / `Optional<T>` / `@Nullable` / `ObjectProvider<T>` 각각의 내부 처리 차이 |
+| [06. Constructor Binding의 장점](./dependency-injection/06-constructor-binding.md) | 불변 객체 보장 원리, `@ConfigurationProperties`에서 생성자 바인딩이 권장되는 이유 |
+| [07. Lazy Initialization 동작 원리](./dependency-injection/07-lazy-initialization.md) | `@Lazy` 어노테이션이 만드는 Proxy, `DefaultListableBeanFactory`의 Lazy 처리 경로 |
 
 </details>
 
@@ -127,13 +115,13 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 | 문서 | 다루는 내용 |
 |------|------------|
-| [01. Bean 생성 전체 과정](./03-bean-lifecycle/01-bean-creation-process.md) | Instantiation → Populate Properties → Aware 체인 → BeanPostProcessor → Init Method 전체 흐름, `AbstractAutowireCapableBeanFactory` 소스 추적 |
-| [02. @PostConstruct vs InitializingBean 실행 순서](./03-bean-lifecycle/02-postconstruct-vs-initializingbean.md) | `@PostConstruct`(JSR-250) vs `InitializingBean.afterPropertiesSet()` vs `init-method` 실행 순서와 이유 |
-| [03. @PreDestroy vs DisposableBean 정리 과정](./03-bean-lifecycle/03-predestroy-vs-disposablebean.md) | 컨테이너 종료 시 소멸 콜백 순서, `ShutdownHook` 등록 원리, 소멸이 보장되지 않는 경우 |
-| [04. Aware 인터페이스 체인](./03-bean-lifecycle/04-aware-interfaces.md) | `BeanNameAware` / `BeanFactoryAware` / `ApplicationContextAware` 호출 시점, 컨테이너 인프라 접근의 트레이드오프 |
-| [05. Bean Scope와 프록시](./03-bean-lifecycle/05-bean-scope-and-proxy.md) | Singleton / Prototype / Request / Session Scope 생명주기 차이, Prototype을 Singleton에 주입할 때의 함정과 Scope Proxy 해결 원리 |
-| [06. FactoryBean vs ObjectProvider](./03-bean-lifecycle/06-factorybean-vs-objectprovider.md) | `FactoryBean<T>` 패턴의 존재 이유, `&`로 FactoryBean 자체를 가져오는 방법, `ObjectProvider`로 지연/선택적 조회 |
-| [07. 순환 의존 내부 해결 과정](./03-bean-lifecycle/07-circular-dependency-resolution.md) | 3단계 캐시 + `ObjectFactory` 조합으로 순환 참조가 해결되는 단계별 시나리오 코드 추적 |
+| [01. Bean 생성 전체 과정](./bean-lifecycle/01-bean-creation-process.md) | Instantiation → Populate Properties → Aware 체인 → BeanPostProcessor → Init Method 전체 흐름, `AbstractAutowireCapableBeanFactory` 소스 추적 |
+| [02. @PostConstruct vs InitializingBean 실행 순서](./bean-lifecycle/02-postconstruct-vs-initializingbean.md) | `@PostConstruct`(JSR-250) vs `InitializingBean.afterPropertiesSet()` vs `init-method` 실행 순서와 이유 |
+| [03. @PreDestroy vs DisposableBean 정리 과정](./bean-lifecycle/03-predestroy-vs-disposablebean.md) | 컨테이너 종료 시 소멸 콜백 순서, `ShutdownHook` 등록 원리, 소멸이 보장되지 않는 경우 |
+| [04. Aware 인터페이스 체인](./bean-lifecycle/04-aware-interfaces.md) | `BeanNameAware` / `BeanFactoryAware` / `ApplicationContextAware` 호출 시점, 컨테이너 인프라 접근의 트레이드오프 |
+| [05. Bean Scope와 프록시](./bean-lifecycle/05-bean-scope-and-proxy.md) | Singleton / Prototype / Request / Session Scope 생명주기 차이, Prototype을 Singleton에 주입할 때의 함정과 Scope Proxy 해결 원리 |
+| [06. FactoryBean vs ObjectProvider](./bean-lifecycle/06-factorybean-vs-objectprovider.md) | `FactoryBean<T>` 패턴의 존재 이유, `&`로 FactoryBean 자체를 가져오는 방법, `ObjectProvider`로 지연/선택적 조회 |
+| [07. 순환 의존 내부 해결 과정](./bean-lifecycle/07-circular-dependency-resolution.md) | 3단계 캐시 + `ObjectFactory` 조합으로 순환 참조가 해결되는 단계별 시나리오 코드 추적 |
 
 </details>
 
@@ -150,14 +138,14 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 | 문서 | 다루는 내용 |
 |------|------------|
-| [01. JDK Dynamic Proxy vs CGLIB 바이트코드 비교](./04-aop/01-jdk-proxy-vs-cglib.md) | `Proxy.newProxyInstance()` vs ASM 바이트코드 생성, `javap`로 두 프록시의 클래스 구조 비교 |
-| [02. ProxyFactoryBean 내부 구조](./04-aop/02-proxyfactorybean-internals.md) | `ProxyFactoryBean` → `ProxyFactory` → `AopProxy` 생성 체인, `AdvisedSupport` 메타데이터 |
-| [03. @AspectJ 어노테이션 처리 과정](./04-aop/03-aspectj-annotation-processing.md) | `AnnotationAwareAspectJAutoProxyCreator`가 `@Aspect`를 `Advisor`로 변환하는 과정 |
-| [04. Pointcut Expression 파싱과 매칭](./04-aop/04-pointcut-expression.md) | `execution()` / `within()` / `@annotation()` 파싱 원리, `AspectJExpressionPointcut` 내부 매처 |
-| [05. Advice 체인 실행 순서](./04-aop/05-advice-chain-execution.md) | `Around` → `Before` → `AfterReturning` / `AfterThrowing` 실행 순서, `ReflectiveMethodInvocation.proceed()` 재귀 호출 구조 |
-| [06. @Transactional이 프록시인 이유](./04-aop/06-transactional-proxy-mechanism.md) | `TransactionInterceptor`가 Advice 체인에 들어가는 과정, `PlatformTransactionManager` 위임 구조 |
-| [07. private 메서드에 AOP가 안 되는 이유](./04-aop/07-why-private-aop-fails.md) | 오버라이딩 불가 → 프록시 적용 불가의 바이트코드 수준 설명, 같은 클래스 내부 메서드 호출(Self-Invocation) 함정 |
-| [08. Proxy 성능 비교](./04-aop/08-proxy-performance.md) | JDK Proxy vs CGLIB vs AspectJ Weaving 성능 실측 (`JMH`), Spring Boot 기본값이 CGLIB인 이유 |
+| [01. JDK Dynamic Proxy vs CGLIB 바이트코드 비교](./aop/01-jdk-proxy-vs-cglib.md) | `Proxy.newProxyInstance()` vs ASM 바이트코드 생성, `javap`로 두 프록시의 클래스 구조 비교 |
+| [02. ProxyFactoryBean 내부 구조](./aop/02-proxyfactorybean-internals.md) | `ProxyFactoryBean` → `ProxyFactory` → `AopProxy` 생성 체인, `AdvisedSupport` 메타데이터 |
+| [03. @AspectJ 어노테이션 처리 과정](./aop/03-aspectj-annotation-processing.md) | `AnnotationAwareAspectJAutoProxyCreator`가 `@Aspect`를 `Advisor`로 변환하는 과정 |
+| [04. Pointcut Expression 파싱과 매칭](./aop/04-pointcut-expression.md) | `execution()` / `within()` / `@annotation()` 파싱 원리, `AspectJExpressionPointcut` 내부 매처 |
+| [05. Advice 체인 실행 순서](./aop/05-advice-chain-execution.md) | `Around` → `Before` → `AfterReturning` / `AfterThrowing` 실행 순서, `ReflectiveMethodInvocation.proceed()` 재귀 호출 구조 |
+| [06. @Transactional이 프록시인 이유](./aop/06-transactional-proxy-mechanism.md) | `TransactionInterceptor`가 Advice 체인에 들어가는 과정, `PlatformTransactionManager` 위임 구조 |
+| [07. private 메서드에 AOP가 안 되는 이유](./aop/07-why-private-aop-fails.md) | 오버라이딩 불가 → 프록시 적용 불가의 바이트코드 수준 설명, 같은 클래스 내부 메서드 호출(Self-Invocation) 함정 |
+| [08. Proxy 성능 비교](./aop/08-proxy-performance.md) | JDK Proxy vs CGLIB vs AspectJ Weaving 성능 실측 (`JMH`), Spring Boot 기본값이 CGLIB인 이유 |
 
 </details>
 
@@ -174,12 +162,12 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 | 문서 | 다루는 내용 |
 |------|------------|
-| [01. @ComponentScan 동작 원리](./05-component-scanning/01-componentscan-internals.md) | `ClassPathBeanDefinitionScanner` 스캔 흐름, ASM 기반 메타데이터 리더로 클래스 로딩 없이 어노테이션 탐색하는 방법 |
-| [02. ClassPathScanningCandidateComponentProvider](./05-component-scanning/02-candidate-component-provider.md) | 후보 컴포넌트 필터링 알고리즘, `@Component` 계층 어노테이션(`@Service`, `@Repository`) 인식 방식 |
-| [03. TypeFilter Include & Exclude](./05-component-scanning/03-typefilter-include-exclude.md) | `includeFilters` / `excludeFilters` 적용 순서, `AssignableTypeFilter` / `AnnotationTypeFilter` / Custom Filter 구현 |
-| [04. @Conditional 평가 과정](./05-component-scanning/04-conditional-evaluation.md) | `ConditionEvaluator`가 `@Conditional`을 평가하는 시점과 순서, `@ConditionalOnClass` 내부 구현 |
-| [05. BeanDefinition 등록 과정](./05-component-scanning/05-beandefinition-registration.md) | 스캔 결과가 `BeanDefinitionRegistry`에 등록되는 과정, 중복 등록 충돌 해결 규칙 |
-| [06. 컴포넌트 인덱스를 통한 스캔 최적화](./05-component-scanning/06-component-index-optimization.md) | `spring.components` 인덱스 파일, `@Indexed` 어노테이션, 대규모 프로젝트에서 스캔 시간을 줄이는 원리 |
+| [01. @ComponentScan 동작 원리](./component-scanning/01-componentscan-internals.md) | `ClassPathBeanDefinitionScanner` 스캔 흐름, ASM 기반 메타데이터 리더로 클래스 로딩 없이 어노테이션 탐색하는 방법 |
+| [02. ClassPathScanningCandidateComponentProvider](./component-scanning/02-candidate-component-provider.md) | 후보 컴포넌트 필터링 알고리즘, `@Component` 계층 어노테이션(`@Service`, `@Repository`) 인식 방식 |
+| [03. TypeFilter Include & Exclude](./component-scanning/03-typefilter-include-exclude.md) | `includeFilters` / `excludeFilters` 적용 순서, `AssignableTypeFilter` / `AnnotationTypeFilter` / Custom Filter 구현 |
+| [04. @Conditional 평가 과정](./component-scanning/04-conditional-evaluation.md) | `ConditionEvaluator`가 `@Conditional`을 평가하는 시점과 순서, `@ConditionalOnClass` 내부 구현 |
+| [05. BeanDefinition 등록 과정](./component-scanning/05-beandefinition-registration.md) | 스캔 결과가 `BeanDefinitionRegistry`에 등록되는 과정, 중복 등록 충돌 해결 규칙 |
+| [06. 컴포넌트 인덱스를 통한 스캔 최적화](./component-scanning/06-component-index-optimization.md) | `spring.components` 인덱스 파일, `@Indexed` 어노테이션, 대규모 프로젝트에서 스캔 시간을 줄이는 원리 |
 
 </details>
 
@@ -196,12 +184,12 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 | 문서 | 다루는 내용 |
 |------|------------|
-| [01. @Configuration vs @Component](./06-configuration/01-configuration-vs-component.md) | Full Mode vs Lite Mode 차이, `@Bean` 메서드를 직접 호출하면 생기는 일 |
-| [02. CGLIB 프록시가 적용되는 이유](./06-configuration/02-cglib-proxy-on-configuration.md) | `ConfigurationClassEnhancer`가 CGLIB 서브클래스를 만드는 과정, `$$EnhancerBySpringCGLIB` 클래스 분석 |
-| [03. @Bean 메서드 호출 가로채기](./06-configuration/03-bean-method-interception.md) | `BeanMethodInterceptor`가 이미 등록된 Bean을 반환하는 메커니즘, Singleton 보장이 이루어지는 지점 |
-| [04. Lite Mode vs Full Mode 트레이드오프](./06-configuration/04-lite-mode-vs-full-mode.md) | CGLIB 없는 Lite Mode의 성능상 이점과 Singleton 보장 불가 트레이드오프, 선택 기준 |
-| [05. @Import의 3가지 방식](./06-configuration/05-import-three-ways.md) | 일반 클래스 Import / `ImportSelector` / `ImportBeanDefinitionRegistrar` 각각의 처리 시점과 활용 사례 |
-| [06. ImportSelector & ImportBeanDefinitionRegistrar](./06-configuration/06-importselector-registrar.md) | `AutoConfigurationImportSelector`(Spring Boot 자동 설정)가 동작하는 원리, 조건부 Bean 등록 패턴 |
+| [01. @Configuration vs @Component](./configuration/01-configuration-vs-component.md) | Full Mode vs Lite Mode 차이, `@Bean` 메서드를 직접 호출하면 생기는 일 |
+| [02. CGLIB 프록시가 적용되는 이유](./configuration/02-cglib-proxy-on-configuration.md) | `ConfigurationClassEnhancer`가 CGLIB 서브클래스를 만드는 과정, `$$EnhancerBySpringCGLIB` 클래스 분석 |
+| [03. @Bean 메서드 호출 가로채기](./configuration/03-bean-method-interception.md) | `BeanMethodInterceptor`가 이미 등록된 Bean을 반환하는 메커니즘, Singleton 보장이 이루어지는 지점 |
+| [04. Lite Mode vs Full Mode 트레이드오프](./configuration/04-lite-mode-vs-full-mode.md) | CGLIB 없는 Lite Mode의 성능상 이점과 Singleton 보장 불가 트레이드오프, 선택 기준 |
+| [05. @Import의 3가지 방식](./configuration/05-import-three-ways.md) | 일반 클래스 Import / `ImportSelector` / `ImportBeanDefinitionRegistrar` 각각의 처리 시점과 활용 사례 |
+| [06. ImportSelector & ImportBeanDefinitionRegistrar](./configuration/06-importselector-registrar.md) | `AutoConfigurationImportSelector`(Spring Boot 자동 설정)가 동작하는 원리, 조건부 Bean 등록 패턴 |
 
 </details>
 
@@ -218,11 +206,11 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 | 문서 | 다루는 내용 |
 |------|------------|
-| [01. ApplicationEvent 발행-구독 메커니즘](./07-events/01-application-event-mechanism.md) | `ApplicationEventMulticaster` 내부 구조, `publishEvent()` 호출 시 리스너 탐색 및 호출 흐름 |
-| [02. @EventListener vs ApplicationListener](./07-events/02-eventlistener-vs-applicationlistener.md) | `EventListenerMethodProcessor`가 `@EventListener` 메서드를 `ApplicationListener`로 변환하는 과정 |
-| [03. 비동기 이벤트 처리 @Async](./07-events/03-async-event-processing.md) | `@Async`와 결합된 비동기 이벤트의 스레드 분리 원리, `SimpleApplicationEventMulticaster` 스레드 풀 설정 |
-| [04. 이벤트 실행 순서 보장](./07-events/04-event-ordering.md) | `@Order` / `Ordered` 인터페이스로 리스너 순서 제어, 순서가 보장되지 않는 경우 |
-| [05. 트랜잭션 바운드 이벤트](./07-events/05-transaction-bound-events.md) | `@TransactionalEventListener`의 Phase(`AFTER_COMMIT` 등) 동작 원리, 트랜잭션 컨텍스트에서 이벤트 발행의 함정 |
+| [01. ApplicationEvent 발행-구독 메커니즘](./events/01-application-event-mechanism.md) | `ApplicationEventMulticaster` 내부 구조, `publishEvent()` 호출 시 리스너 탐색 및 호출 흐름 |
+| [02. @EventListener vs ApplicationListener](./events/02-eventlistener-vs-applicationlistener.md) | `EventListenerMethodProcessor`가 `@EventListener` 메서드를 `ApplicationListener`로 변환하는 과정 |
+| [03. 비동기 이벤트 처리 @Async](./events/03-async-event-processing.md) | `@Async`와 결합된 비동기 이벤트의 스레드 분리 원리, `SimpleApplicationEventMulticaster` 스레드 풀 설정 |
+| [04. 이벤트 실행 순서 보장](./events/04-event-ordering.md) | `@Order` / `Ordered` 인터페이스로 리스너 순서 제어, 순서가 보장되지 않는 경우 |
+| [05. 트랜잭션 바운드 이벤트](./events/05-transaction-bound-events.md) | `@TransactionalEventListener`의 Phase(`AFTER_COMMIT` 등) 동작 원리, 트랜잭션 컨텍스트에서 이벤트 발행의 함정 |
 
 </details>
 
@@ -239,11 +227,11 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 | 문서 | 다루는 내용 |
 |------|------------|
-| [01. SpEL 파싱 과정](./08-spel/01-spel-parsing-process.md) | `ExpressionParser` → `Expression` → `EvaluationContext` 구조, Tokenizer / AST 파싱 단계 |
-| [02. @Value("${...}") vs @Value("#{...}")](./08-spel/02-value-property-vs-spel.md) | Property Placeholder와 SpEL의 처리 시점 차이, `PropertySourcesPlaceholderConfigurer` vs `ExpressionEvaluator` |
-| [03. PropertyEditor vs Converter 변환](./08-spel/03-propertyeditor-vs-converter.md) | JavaBeans `PropertyEditor`(구)와 Spring `Converter<S,T>`(신) 설계 차이, 타입 변환 순서 |
-| [04. ConversionService 등록과 우선순위](./08-spel/04-conversionservice-registration.md) | `DefaultConversionService` 내장 Converter 목록, 커스텀 Converter 등록 방법과 우선순위 결정 |
-| [05. Custom Type Converter 작성](./08-spel/05-custom-type-converter.md) | `Converter<S,T>` / `GenericConverter` / `ConverterFactory` 세 가지 구현 방식과 사용 시점 |
+| [01. SpEL 파싱 과정](./spel/01-spel-parsing-process.md) | `ExpressionParser` → `Expression` → `EvaluationContext` 구조, Tokenizer / AST 파싱 단계 |
+| [02. @Value("${...}") vs @Value("#{...}")](./spel/02-value-property-vs-spel.md) | Property Placeholder와 SpEL의 처리 시점 차이, `PropertySourcesPlaceholderConfigurer` vs `ExpressionEvaluator` |
+| [03. PropertyEditor vs Converter 변환](./spel/03-propertyeditor-vs-converter.md) | JavaBeans `PropertyEditor`(구)와 Spring `Converter<S,T>`(신) 설계 차이, 타입 변환 순서 |
+| [04. ConversionService 등록과 우선순위](./spel/04-conversionservice-registration.md) | `DefaultConversionService` 내장 Converter 목록, 커스텀 Converter 등록 방법과 우선순위 결정 |
+| [05. Custom Type Converter 작성](./spel/05-custom-type-converter.md) | `Converter<S,T>` / `GenericConverter` / `ConverterFactory` 세 가지 구현 방식과 사용 시점 |
 
 </details>
 
