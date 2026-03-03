@@ -630,15 +630,6 @@ child.getBean("parentBean");  // ??
 
 ---
 
-## 📚 참고 자료
-
-- [Spring Docs — BeanFactory](https://docs.spring.io/spring-framework/reference/core/beans/beanfactory.html)
-- [Spring Source — AbstractBeanFactory.doGetBean()](https://github.com/spring-projects/spring-framework/blob/main/spring-beans/src/main/java/org/springframework/beans/factory/support/AbstractBeanFactory.java)
-- [Spring Source — AbstractApplicationContext.refresh()](https://github.com/spring-projects/spring-framework/blob/main/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java)
-- [Spring Source — DefaultListableBeanFactory.preInstantiateSingletons()](https://github.com/spring-projects/spring-framework/blob/main/spring-beans/src/main/java/org/springframework/beans/factory/support/DefaultListableBeanFactory.java)
-
----
-
 <div align="center">
 
 **[⬅️ 목차로](../README.md)** | **[다음: BeanDefinition과 Bean 메타데이터 ➡️](./02-bean-definition-metadata.md)**
