@@ -16,7 +16,7 @@ IoC 컨테이너 구조부터 AOP 바이트코드, 트랜잭션 프록시, SpEL 
 [![GitHub](https://img.shields.io/badge/GitHub-dev--book--lab-181717?style=flat-square&logo=github)](https://github.com/dev-book-lab)
 [![Java](https://img.shields.io/badge/Java-17%2B-orange?style=flat-square&logo=openjdk)](https://www.java.com)
 [![Spring](https://img.shields.io/badge/Spring-6.x-6DB33F?style=flat-square&logo=spring&logoColor=white)](https://spring.io)
-[![Docs](https://img.shields.io/badge/Docs-50개-blue?style=flat-square&logo=readthedocs&logoColor=white)](./README.md)
+[![Docs](https://img.shields.io/badge/Docs-51개-blue?style=flat-square&logo=readthedocs&logoColor=white)](./README.md)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square&logo=opensourceinitiative&logoColor=white)](./LICENSE)
 
 </div>
@@ -132,7 +132,7 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 > **핵심 질문:** `@Transactional`은 어떻게 트랜잭션을 시작하고 커밋하는가? 왜 `private`에서는 안 되는가?
 
 <details>
-<summary><b>JDK Proxy부터 CGLIB까지, 프록시 기반 AOP의 비밀 (8개 문서)</b></summary>
+<summary><b>JDK Proxy부터 CGLIB까지, 프록시 기반 AOP의 비밀 (9개 문서)</b></summary>
 
 <br/>
 
@@ -146,6 +146,7 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 | [06. @Transactional이 프록시인 이유](./aop/06-transactional-proxy-mechanism.md) | `TransactionInterceptor`가 Advice 체인에 들어가는 과정, `PlatformTransactionManager` 위임 구조 |
 | [07. private 메서드에 AOP가 안 되는 이유](./aop/07-why-private-aop-fails.md) | 오버라이딩 불가 → 프록시 적용 불가의 바이트코드 수준 설명, 같은 클래스 내부 메서드 호출(Self-Invocation) 함정 |
 | [08. Proxy 성능 비교](./aop/08-proxy-performance.md) | JDK Proxy vs CGLIB vs AspectJ Weaving 성능 실측 (`JMH`), Spring Boot 기본값이 CGLIB인 이유 |
+| [09. @Cacheable의 AOP 내부 구조](./aop/09-cacheable-aop-internals.md) | `CacheInterceptor`가 Advice 체인에 들어가는 과정, `@Transactional`과 동일한 AOP 패턴 재사용, `CacheAspectSupport` SpEL 키 평가, `@CachePut` / `@CacheEvict` 동작 차이 |
 
 </details>
 
@@ -246,18 +247,20 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 
 **Week 1 — 컨테이너와 의존성 주입 원리**
 ```
-01 BeanFactory vs ApplicationContext
-01 Bean 생성 전체 과정
-01 생성자 vs 필드 vs 세터 주입 바이트코드 비교
-02 순환 참조 해결 — 3단계 캐시
+Ch1-01  BeanFactory vs ApplicationContext
+Ch3-01  Bean 생성 전체 과정
+Ch2-01  생성자 vs 필드 vs 세터 주입 바이트코드 비교
+Ch2-02  순환 참조 해결 — 3단계 캐시
 ```
 
-**Week 2 — AOP와 트랜잭션의 비밀**
+**Week 2 — AOP · 설정 · 실무 혼동 포인트**
 ```
-01 JDK Proxy vs CGLIB 바이트코드 비교
-06 @Transactional이 프록시인 이유
-07 private 메서드에 AOP가 안 되는 이유
-01 @Configuration vs @Component
+Ch4-01  JDK Proxy vs CGLIB 바이트코드 비교
+Ch4-06  @Transactional이 프록시인 이유
+Ch4-07  private 메서드에 AOP가 안 되는 이유
+Ch6-01  @Configuration vs @Component (Full / Lite Mode)
+Ch7-05  트랜잭션 바운드 이벤트 (@TransactionalEventListener — 면접 단골)
+Ch8-02  @Value("${...}") vs @Value("#{...}") (실무 혼동 포인트)
 ```
 
 </details>
@@ -268,11 +271,12 @@ Spring에 관한 자료는 넘쳐납니다. 하지만 대부분은 **"어떻게 
 <br/>
 
 ```
-Chapter 1 전체 (IoC 컨테이너 구조)
-→ Chapter 2 전체 (DI 메커니즘)
-→ Chapter 3 전체 (Bean 생명주기)
-→ Chapter 4 전체 (AOP + 직접 바이트코드 분석)
-→ Chapter 5, 6 (컴포넌트 스캔 + Java Config)
+Week 1  Chapter 1 전체 — IoC 컨테이너 구조
+Week 2  Chapter 2 전체 — DI 메커니즘
+Week 3  Chapter 3 전체 — Bean 생명주기
+Week 4  Chapter 4 전체 — AOP + @Transactional + @Cacheable 내부 구조
+Week 5  Chapter 5 전체 + Chapter 6 전체 — 컴포넌트 스캔 + Java Config
+Week 6  Chapter 7 전체 + Chapter 8 전체 — 이벤트 시스템 + SpEL + 타입 변환
 ```
 
 </details>
@@ -283,10 +287,18 @@ Chapter 1 전체 (IoC 컨테이너 구조)
 <br/>
 
 ```
-전체 순서대로 + 각 문서의 실험 코드 직접 실행
-→ Spring Framework GitHub에서 연관 소스 직접 추적
-→ Chapter 7, 8로 이벤트 / SpEL까지 완성
-→ 직접 BeanPostProcessor / ImportBeanDefinitionRegistrar 구현해보기
+1개월차  Chapter 1~4 전체 순서대로 + 각 문서의 실험 코드 직접 실행
+         → Spring Framework GitHub에서 연관 소스 직접 추적
+         → 직접 BeanPostProcessor 구현해보기
+
+2개월차  Chapter 5~6 전체
+         → ImportBeanDefinitionRegistrar로 커스텀 @EnableXxx 어노테이션 만들기
+         → @ComponentScan 필터 직접 작성해보기
+
+3개월차  Chapter 7~8 전체
+         → @TransactionalEventListener + @Async 조합 실무 패턴 실습
+         → 커스텀 GenericConverter + ConditionalConverter 구현
+         → 전체 Bean 생명주기 플로우 직접 그려보기
 ```
 
 </details>
