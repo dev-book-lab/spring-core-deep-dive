@@ -476,6 +476,6 @@ Spring Boot CGLIB 기본값 이유
 
 <div align="center">
 
-**[⬅️ 이전: private 메서드에 AOP가 안 되는 이유](./07-why-private-aop-fails.md)** | **[홈으로 🏠](../README.md)**
+**[⬅️ 이전: private 메서드에 AOP가 안 되는 이유](./07-why-private-aop-fails.md)** | **[다음: @Cacheable의 AOP 내부 구조 ➡️](./09-cacheable-aop-internals.md)**
 
 </div>
